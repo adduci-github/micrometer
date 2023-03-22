@@ -7,20 +7,15 @@ import org.springframework.stereotype.Service;
 import reactor.core.observability.micrometer.Micrometer;
 import reactor.core.publisher.Mono;
 
-import java.time.Duration;
-import java.util.Random;
-import java.util.function.Supplier;
-
 @Service
 @RequiredArgsConstructor
-public class GreetingService {
+public class CreateService {
     private final ObservationRegistry registry;
-    private final CreateService createService;
 
-    public Mono<Greeting> greeting(String name) {
-        return createService
-                .create(name)
-                .name("greeting.call")
+    public Mono<Greeting> create(String name) {
+        return Mono
+                .just(new Greeting(name))
+                .name("greeting.create")
                 .tap(Micrometer.observation(registry));
     }
 }
