@@ -26,6 +26,7 @@ dependencies {
     implementation 'io.projectreactor:reactor-core-micrometer'
 
     implementation 'io.micrometer:micrometer-registry-prometheus'
+    implementation 'io.zipkin.reporter2:zipkin-reporter-brave:2.15.1'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
