@@ -16,9 +16,13 @@ import java.util.function.Supplier;
 @RequiredArgsConstructor
 @Slf4j
 public class GreetingService {
+    private final ObservationRegistry registry;
 
     public Mono<Greeting> greeting(String name) {
+        log.info("Greeting Log");
         return Mono
-                .just(new Greeting(name));
+                .just(new Greeting(name))
+                .name("greeting.create")
+                .tap(Micrometer.observation(registry));
     }
 }
