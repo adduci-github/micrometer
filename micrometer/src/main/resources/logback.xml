@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="com.micrometer.config.IgnoringPrometheusLoggingFilter" />
+        <encoder>
+            <pattern><![CDATA[%date{HH:mm:ss.SSS} %-5level %logger{15}#%line %X{req.requestURI} traceId: %X{traceId} spanId: %X{spanId} %msg\n]]></pattern>
+        </encoder>
+    </appender>
+
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>
