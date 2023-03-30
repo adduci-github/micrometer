@@ -1,6 +1,5 @@
 package com.micrometer.greeting.controller;
 
-import com.micrometer.config.IgnoringPrometheusMeterFilter;
 import com.micrometer.greeting.record.Greeting;
 import com.micrometer.greeting.service.GreetingService;
 import io.micrometer.observation.ObservationRegistry;

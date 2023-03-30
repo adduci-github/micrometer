@@ -4,9 +4,7 @@ import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.filter.Filter;
 import ch.qos.logback.core.spi.FilterReply;
 
-public class IgnoringPrometheusLoggingFilter extends Filter<ILoggingEvent> {
-    private static final String PROMETHEUS = "prometheus";
-
+public class IgnoringActuatorLoggingFilter extends Filter<ILoggingEvent> {
     @Override
     public FilterReply decide(ILoggingEvent loggingEvent) {
         if (isPrometheus(loggingEvent.getMessage())) {
@@ -17,6 +15,7 @@ public class IgnoringPrometheusLoggingFilter extends Filter<ILoggingEvent> {
     }
 
     private boolean isPrometheus(String message) {
-        return message.contains(PROMETHEUS);
+        return message.contains("actuator")
+                || message.contains("instances");
     }
 }

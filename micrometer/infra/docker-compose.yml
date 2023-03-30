@@ -5,6 +5,13 @@ services:
       - "8080:8080"
     links:
       - zipkin
+      - boot-admin
+
+  boot-admin:
+    build: ../../../bootadmin/bootadmin
+    ports:
+      - "8000:8000"
+    container_name: boot-admin
 
   zipkin:
     image: openzipkin/zipkin

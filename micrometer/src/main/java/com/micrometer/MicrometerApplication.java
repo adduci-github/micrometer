@@ -1,6 +1,5 @@
 package com.micrometer;
 
-import com.micrometer.config.IgnoringPrometheusObservationFilter;
 import io.micrometer.observation.ObservationRegistry;
 import io.micrometer.observation.ObservationTextPublisher;
 import org.springframework.boot.SpringApplication;
@@ -23,8 +22,8 @@ public class MicrometerApplication {
     @Bean
     ObservationRegistry observationRegistry() {
         ObservationRegistry registry = ObservationRegistry.create();
-        registry.observationConfig().observationFilter(new IgnoringPrometheusObservationFilter());
         registry.observationConfig().observationHandler(printingObservationHandler());
+
         return registry;
     }
 }

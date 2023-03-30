@@ -27,6 +27,7 @@ dependencies {
 
     implementation 'io.micrometer:micrometer-registry-prometheus'
     implementation 'io.zipkin.reporter2:zipkin-reporter-brave:2.15.1'
+    implementation 'de.codecentric:spring-boot-admin-client:3.0.2'
 
     compileOnly 'org.projectlombok:lombok'
 

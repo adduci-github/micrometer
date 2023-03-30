@@ -7,6 +7,6 @@ import org.springframework.context.annotation.Configuration;
 public class ActuatorConfig {
     @Bean
     public MeterRegistryCustomizer meterRegistryCustomizer() {
-        return registry -> registry.config().meterFilter(new IgnoringPrometheusMeterFilter());
+        return registry -> registry.config().meterFilter(new IgnoringActuatorMeterFilter());
     }
 }
